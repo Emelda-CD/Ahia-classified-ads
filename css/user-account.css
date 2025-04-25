@@ -1,0 +1,294 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+}
+
+/* Header Styles */
+header {
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 1rem;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+nav .logo img {
+    max-width: 150px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover, nav ul li a.active {
+    color: #007bff;
+}
+
+/* Main Content Styles */
+main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.user-dashboard {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 2rem;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.user-profile {
+    background-color: #f9f9f9;
+    padding: 2rem;
+    text-align: center;
+    border-right: 1px solid #e0e0e0;
+}
+
+.user-avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+}
+
+.dashboard-menu {
+    padding: 1rem;
+    background-color: #f9f9f9;
+    border-right: 1px solid #e0e0e0;
+}
+
+.dashboard-menu ul {
+    list-style: none;
+}
+
+.dashboard-menu ul li {
+    margin-bottom: 1rem;
+}
+
+.dashboard-menu ul li a {
+    text-decoration: none;
+    color: #666;
+    padding: 0.5rem 1rem;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+.dashboard-menu ul li.active-menu a,
+.dashboard-menu ul li a:hover {
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+}
+
+.dashboard-content {
+    padding: 2rem;
+}
+
+.dashboard-content section {
+    display: none;
+}
+
+.dashboard-content .active-section {
+    display: block;
+}
+
+/* Profile Settings Form */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.btn-update {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-update:hover {
+    background-color: #0056b3;
+}
+
+/* My Ads Section */
+.ad-list {
+    display: grid;
+    gap: 1rem;
+}
+
+.ad-item {
+    display: flex;
+    align-items: center;
+    background-color: #f9f9f9;
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+.ad-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-right: 1rem;
+    border-radius: 5px;
+}
+
+.ad-details {
+    flex-grow: 1;
+}
+
+.ad-status {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    border-radius: 3px;
+    font-size: 0.8rem;
+}
+
+.ad-status.active {
+    background-color: #28a745;
+    color: white;
+}
+
+.ad-status.expired {
+    background-color: #dc3545;
+    color: white;
+}
+
+.ad-actions {
+    margin-top: 0.5rem;
+}
+
+.ad-actions button {
+    margin-right: 0.5rem;
+    padding: 0.25rem 0.5rem;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.ad-actions button.delete {
+    background-color: #dc3545;
+    color: white;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+}
+
+.footer-links a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+/* Media Queries for Responsiveness */
+@media screen and (max-width: 1024px) {
+    .user-dashboard {
+        grid-template-columns: 1fr;
+    }
+
+    .user-profile {
+        border-right: none;
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+    .dashboard-menu {
+        border-right: none;
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+    .dashboard-menu ul {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .dashboard-menu ul li {
+        margin-bottom: 0;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    nav ul {
+        display: none; /* In a real project, you'd replace this with a mobile menu */
+    }
+
+    .ad-item {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .ad-item img {
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+
+    .ad-actions {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .user-avatar {
+        width: 100px;
+        height: 100px;
+    }
+
+    .dashboard-menu ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .dashboard-menu ul li {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 0.5rem;
+    }
+}

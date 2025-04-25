@@ -1,0 +1,234 @@
+/* Premium Compact CSS */
+:root {
+    --primary: #764ba2;
+    --secondary: #764ba8;
+    --white: #ffffff;
+    --light: #f8f9fa;
+    --dark: #212529;
+    --shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+  
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background: var(--light);
+  }
+  
+  /* Hero Section */
+  .hero {
+    text-align: center;
+    padding: 4rem 1rem;
+    background: linear-gradient(135deg, #591942 0%, #764ba2 100%);
+    color: var(--white);
+    margin-bottom: 2rem;
+  }
+  
+  .hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  }
+
+  .filter-section {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+  .search-container {
+    max-width: 600px;
+    margin: 1.5rem auto;
+    display: flex;
+  }
+  
+  .search-container input {
+    flex: 1;
+    padding: 1rem;
+    border: none;
+    border-radius: 50px 0 0 50px;
+  }
+  
+  .search-container button {
+    padding: 0 1.5rem;
+    background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+    color: var(--white);
+    border: none;
+    border-radius: 0 50px 50px 0;
+    cursor: pointer;
+  }
+  
+  /* Sections */
+  .featured-categories, .recent-listings {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+  
+  .featured-categories h2, .recent-listings h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    position: relative;
+  }
+  
+  .featured-categories h2::after, .recent-listings h2::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: var(--primary);
+  }
+  
+  /* Grid Layouts */
+  .category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+  
+  .category-item {
+    background: var(--white);
+    padding: 1.25rem 0.5rem;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+  }
+  
+  .category-item:hover {
+    transform: translateY(-5px);
+    background: var(--primary);
+    color: var(--white);
+  }
+  
+  .listings-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .listing-item {
+    background: var(--white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+  }
+  
+  .listing-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  }
+  
+  .listing-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+  }
+  
+  .listing-content {
+    padding: 1rem;
+  }
+  
+  .listing-item .price {
+    color: var(--primary);
+    font-weight: bold;
+    margin-top: 0.5rem;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .hero h1 { font-size: 2rem; }
+    .category-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  
+  @media (max-width: 480px) {
+    .hero { padding: 3rem 1rem; }
+    .search-container { flex-direction: column; }
+    .search-container input, 
+    .search-container button {
+      border-radius: 50px;
+      margin: 0.25rem 0;
+    }
+  }
+
+  /* Footer CSS */
+.footer {
+  background: linear-gradient(135deg, #591942 0%, #764ba2 100%);
+  color: #eee;
+  padding: 40px 20px 20px;
+  font-family: Arial, sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-section {
+  flex: 1 1 200px;
+  margin: 10px 20px;
+}
+
+.footer-section h4 {
+  margin-bottom: 15px;
+  font-size: 16px;
+  color: #fff;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+  color: #bbb;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+  color: #fff;
+}
+
+.social-icons a {
+  margin-right: 10px;
+  display: inline-block;
+}
+
+.social-icons img {
+  width: 24px;
+  height: 24px;
+  filter: brightness(0) invert(1);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding: 20px 0 0;
+  border-top: 1px solid #444;
+  font-size: 14px;
+  color: #aaa;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-section {
+    margin: 20px 0;
+  }
+}
+
