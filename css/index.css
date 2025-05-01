@@ -16,7 +16,7 @@
   /* Hero Section */
   .hero {
     text-align: center;
-    padding: 4rem 1rem;
+    padding: 0.5rem 1rem;
     background: linear-gradient(135deg, #591942 0%, #764ba2 100%);
     color: var(--white);
     margin-bottom: 2rem;
@@ -47,6 +47,7 @@
     max-width: 600px;
     margin: 1.5rem auto;
     display: flex;
+    
   }
   
   .search-container input {
@@ -56,6 +57,7 @@
     border-radius: 50px 0 0 50px;
   }
   
+
   .search-container button {
     padding: 0 1.5rem;
     background: linear-gradient(135deg, #591942 0%, #764ba2 100%);
@@ -63,6 +65,8 @@
     border: none;
     border-radius: 0 50px 50px 0;
     cursor: pointer;
+    
+    
   }
   
   /* Sections */
@@ -239,6 +243,9 @@
     margin: 20px 0;
   }
 }
+.search-container button  .enugu-btn {
+  margin-left: 3%;
+}
 
 body {
   font-family: Arial, sans-serif;
@@ -265,6 +272,10 @@ body {
   max-width: 800px;
   position: relative;
   text-align: center;
+}
+
+#modal-title{
+  color: #333;
 }
 
 .close-icon {
