@@ -22,6 +22,10 @@
     padding: 0 2rem;
 }
 
+.categories-gr a {
+text-decoration: none;
+}
+
 .category-card {
     border: 1px solid #ddd;
     border-radius: 10px;
