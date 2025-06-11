@@ -464,3 +464,11 @@
         width: 100%;
       }
     }
+
+    .listing-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+

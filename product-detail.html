@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Detail - Jiji Style</title>
+  <link rel="stylesheet" href="css/product-detail.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="product-images">
+     <div class="image-slider">
+  <span class="arrow left" onclick="prevImage()">&#10094;</span>
+  <img id="main-image" src="asset/iphone12.jpg" alt="Product" />
+  <span class="arrow right" onclick="nextImage()">&#10095;</span>
+</div>
+
+      <div class="thumbnails">
+        <img src="asset/cloth.jpg" alt="Thumb 1" />
+        <img src="asset/book.jpg" alt="Thumb 2" />
+        <img src="asset/iphone12.jpg" alt="Thumb 3" />
+      </div>
+   
+
+    <!-- Similar Ads Section -->
+<div id="similar-ads-container" class="similar-ads">
+  <h2>Similar Ads</h2>
+  <div class="ads-grid">
+    <div class="ad-card">
+      <img src="asset/cloth.jpg" alt="Similar product" />
+      <p class="ad-title">Stylish Men's Jacket</p>
+      <p class="ad-price">₦15,000</p>
+    </div>
+<div class="ads-grid">
+  <div class="ad-card">
+    <img src="asset/iphone12.jpg" alt="Similar product" />
+    <p class="ad-title">iPhone 12 - Neat</p>
+    <p class="ad-price">₦290,000</p>
+  </div>
+  <div class="ad-card">
+    <img src="asset/eye glass.jpeg" alt="Similar product" />
+    <p class="ad-title">HP Laptop 15" Core i5</p>
+    <p class="ad-price">₦320,000</p>
+  </div>
+  <div class="ad-card">
+    <img src="asset/land1.jpg" alt="Similar product" />
+    <p class="ad-title">Samsung 55" Smart TV</p>
+    <p class="ad-price">₦250,000</p>
+  </div>
+  <!-- Add more cards -->
+</div>
+
+  </div>
+</div>
+ </div>
+
+
+   <div class="product-details">
+
+  <!-- 1. Price and Request Callback -->
+  <div class="detail-section price-callback">
+    <h2 id="product-price">₦95,000</h2>
+    <button class="callback-btn">Request Callback</button>
+  </div>
+
+  <!-- 2. Product Information -->
+  <div class="detail-section product-info">
+    <h1 id="product-title">Samsung Galaxy A32</h1>
+    <p id="product-location">Location: Ikeja, Lagos</p>
+    <p id="product-description">Clean Samsung Galaxy A32 with 4GB RAM, 64GB Storage. No cracks, working perfectly.</p>
+  </div>
+
+  <!-- 3. Seller Information -->
+  <div class="detail-section seller-profile">
+    <div class="seller-header">
+      <img src="asset/passport-photogragh2.jpeg" alt="Seller" class="seller-photo" />
+      <div>
+        <h3>John Doe <span class="verified-badge">✔ Verified</span></h3>
+      </div>
+    </div>
+    <div class="seller-actions">
+      <button>Call Seller</button>
+      <button>Chat</button>
+    </div>
+  </div>
+
+  <!-- 4. Safety Tips -->
+  <div class="detail-section safety-tips">
+    <h4>Safety Tips</h4>
+    <ul>
+      <li>Meet in a public place</li>
+      <li>Inspect the item before buying</li>
+      <li>Pay only after collecting the item</li>
+    </ul>
+  </div>
+
+  <!-- 5. Post Ads Button -->
+  <div class="detail-section post-ads">
+    <button class="post-ad-btn">Post Your Ad</button>
+  </div>
+
+</div>
+
+    </div>
+  </div>
+
+  <script src="js/product-detail.js"></script>
+</body>
+</html>
