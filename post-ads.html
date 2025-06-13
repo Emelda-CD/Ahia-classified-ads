@@ -4,395 +4,159 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Post an Ad - Simple Form</title>
-  <style>
-    :root {
-      --primary: #2563eb;
-      --primary-hover: #1d4ed8;
-      --bg: #f9fafb;
-      --border: #d1d5db;
-      --radius: 10px;
-    }
-
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: var(--bg);
-      padding: 20px;
-      margin: 0;
-    }
-
-    .container {
-      max-width: 600px;
-      margin: 0 auto;
-      background: white;
-      padding: 30px;
-      border-radius: var(--radius);
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    h2 {
-      text-align: center;
-      font-size: 2rem;
-      color: #111827;
-      margin-bottom: 10px;
-    }
-
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    label {
-      font-weight: 600;
-      color: #374151;
-    }
-
-    input[type="text"],
-    input[type="email"],
-    input[type="tel"],
-    input[type="number"],
-    textarea {
-      padding: 12px;
-      font-size: 1rem;
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-      font-family: inherit;
-    }
-
-    textarea {
-      resize: vertical;
-      min-height: 100px;
-    }
-
-    .image-preview {
-      margin-top: 10px;
-      max-height: 200px;
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-      display: none;
-      object-fit: cover;
-    }
-
-    button {
-      background-color: var(--primary);
-      color: white;
-      font-size: 1rem;
-      font-weight: bold;
-      padding: 14px;
-      border: none;
-      border-radius: var(--radius);
-      cursor: pointer;
-      transition: background 0.2s ease;
-      min-width: 120px;
-    }
-
-    button:hover:not(:disabled) {
-      background-color: var(--primary-hover);
-    }
-
-    button[disabled] {
-      background-color: #94a3b8;
-      cursor: not-allowed;
-    }
-
-    .button-row {
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      margin-top: 10px;
-    }
-
-    /* Promotion plan styles */
-    .promotion-plans {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .plan {
-      border: 2px solid var(--border);
-      border-radius: var(--radius);
-      padding: 20px;
-      cursor: pointer;
-      transition: border-color 0.3s ease;
-      user-select: none;
-    }
-
-    .plan:hover {
-      border-color: var(--primary);
-    }
-
-    input[type="radio"] {
-      margin-right: 12px;
-      accent-color: var(--primary);
-      cursor: pointer;
-    }
-
-    .plan.selected {
-      border-color: var(--primary);
-      background-color: #eff6ff;
-    }
-
-    .plan-title {
-      font-weight: 700;
-      font-size: 1.2rem;
-      color: #1e40af;
-      margin-bottom: 6px;
-    }
-
-    .plan-price {
-      font-weight: 600;
-      color: #2563eb;
-      font-size: 1.1rem;
-      margin-bottom: 8px;
-    }
-
-    .plan-description {
-      font-size: 0.95rem;
-      color: #4b5563;
-    }
-
-    /* Hide all steps by default */
-    .step {
-      display: none;
-    }
-
-    /* Show active step */
-    .step.active {
-      display: block;
-    }
-
-    /* Responsive */
-    @media (max-width: 600px) {
-      .container {
-        padding: 20px;
-      }
-
-      .button-row {
-        flex-direction: column;
-      }
-
-      button {
-        width: 100%;
-      }
-    }
-  </style>
+    <link rel="stylesheet" href="css/post-ads.css">
+    <link rel="stylesheet" href="/css/navigation.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </head>
+
+   <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html"><img src="asset/ahia-logo.png" alt="Site Logo" style="height: auto; width: 80px;"></a>
+            </div>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#" id="openRegisterPopup">Register</a></li>
+                <li><a href="categories.html">Categories</a></li>
+                <li><a href="listings.html">Listings</a></li>
+                <li><a href="post-ads.html">Post Ad</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="user-account.html">Profile</a></li>
+            </ul>
+        </nav>
+    </header>
 <body>
 
-  <div class="container">
-    <h2>Post an Ad</h2>
+<div class="container">
+  <h2>Post an Ad</h2>
 
-    <form id="adForm">
-
-      <!-- Step 1: Ad Details + Price + Contact -->
-      <div class="step active" id="step1">
-        <div class="form-group">
-          <label for="title">Ad Title</label>
-          <input type="text" id="title" name="title" placeholder="Enter your ad title" required />
-        </div>
-
-        <div class="form-group">
-          <label for="description">Description</label>
-          <textarea id="description" name="description" placeholder="Describe your item or service" required></textarea>
-        </div>
-
-        <div class="form-group">
-          <label for="image">Upload Image</label>
-          <input type="file" id="image" accept="image/*" multiple />
-          <div id="imagePreviewContainer"></div>
-        </div>
-
-        <div class="form-group">
-          <label for="price">Price ($)</label>
-          <input type="number" id="price" name="price" placeholder="Your price" required />
-        </div>
-
-        <div class="form-group">
-          <label for="contactName">Contact Name</label>
-          <input type="text" id="contactName" name="contactName" placeholder="Your name" required />
-        </div>
-
-        <div class="form-group">
-          <label for="contactEmail">Contact Email</label>
-          <input type="email" id="contactEmail" name="contactEmail" placeholder="Your email" required />
-        </div>
-
-        <div class="form-group">
-          <label for="contactPhone">Contact Phone</label>
-          <input type="tel" id="contactPhone" name="contactPhone" placeholder="Your phone number" required />
-        </div>
-
-        <div class="button-row">
-          <div></div> <!-- empty space for alignment -->
-          <button type="button" id="nextButton" disabled>Next</button>
-        </div>
+  <form id="adForm">
+    <div class="step active" id="step1">
+      <div class="form-group">
+        <label for="title">Ad Title</label>
+        <input type="text" id="title" name="title" placeholder="Enter your ad title" required />
       </div>
 
-      <!-- Step 2: Promotion Plans -->
-      <div class="step" id="step2">
-        <h3>Promote Your Ad</h3>
-        <p>Select a promotion plan to boost your ad visibility:</p>
-
-        <div class="promotion-plans">
-          <label class="plan" for="plan7days">
-            <input type="radio" id="plan7days" name="promotionPlan" value="7days" />
-            <div class="plan-title">7 Days Plan</div>
-            <div class="plan-price">$9.99</div>
-            <div class="plan-description">
-              Promote your ad for 7 days to reach more buyers quickly.
-            </div>
-          </label>
-
-          <label class="plan" for="plan1month">
-            <input type="radio" id="plan1month" name="promotionPlan" value="1month" />
-            <div class="plan-title">1 Month Plan</div>
-            <div class="plan-price">$29.99</div>
-            <div class="plan-description">
-              Keep your ad featured for 1 full month for maximum exposure.
-            </div>
-          </label>
-        </div>
-
-        <div class="button-row">
-          <button type="button" id="backButton">Back</button>
-          <button type="submit" id="submitButton" disabled>Post Ad</button>
-        </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" name="description" placeholder="Describe your item or service" required></textarea>
       </div>
 
-    </form>
-  </div>
+      <div class="form-group">
+        <label for="image">Upload Images (Minimum 4)</label>
+        <input type="file" id="image" accept="image/*" multiple />
+        <div id="imageError" style="color: red;"></div>
+        <div id="imagePreviewContainer"></div>
+      </div>
 
-  <script>
-    const step1 = document.getElementById('step1');
-    const step2 = document.getElementById('step2');
-    const nextButton = document.getElementById('nextButton');
-    const backButton = document.getElementById('backButton');
-    const submitButton = document.getElementById('submitButton');
+      <div class="form-group">
+        <label for="price">Price (₦)</label>
+        <input type="number" id="price" name="price" placeholder="Your price" required />
+      </div>
 
-    // Step 1 inputs
-    const titleInput = document.getElementById('title');
-    const descriptionInput = document.getElementById('description');
-    const priceInput = document.getElementById('price');
-    const contactNameInput = document.getElementById('contactName');
-    const contactEmailInput = document.getElementById('contactEmail');
-    const contactPhoneInput = document.getElementById('contactPhone');
-    const imageInput = document.getElementById('image');
-    const imagePreviewContainer = document.getElementById('imagePreviewContainer');
+      <div class="form-group">
+        <label for="contactName">Contact Name</label>
+        <input type="text" id="contactName" name="contactName" placeholder="Your name" required />
+      </div>
 
-    // Promotion plan inputs
-    const promotionPlanInputs = document.querySelectorAll('input[name="promotionPlan"]');
+      <div class="form-group">
+        <label for="contactEmail">Contact Email</label>
+        <input type="email" id="contactEmail" name="contactEmail" placeholder="Your email" required />
+      </div>
 
-    // Enable next button only if required inputs in step 1 are filled
-    function validateStep1() {
-      if (
-        titleInput.value.trim() &&
-        descriptionInput.value.trim() &&
-        priceInput.value.trim() &&
-        contactNameInput.value.trim() &&
-        contactEmailInput.value.trim() &&
-        contactPhoneInput.value.trim()
-      ) {
-        nextButton.disabled = false;
-      } else {
-        nextButton.disabled = true;
-      }
-    }
+      <div class="form-group">
+        <label for="contactPhone">Contact Phone</label>
+        <input type="tel" id="contactPhone" name="contactPhone" placeholder="Your phone number" required />
+      </div>
 
-    [titleInput, descriptionInput, priceInput, contactNameInput, contactEmailInput, contactPhoneInput].forEach(input => {
-      input.addEventListener('input', validateStep1);
-    });
+      <div class="button-row">
+        <div></div>
+        <button type="button" id="nextButton" disabled>Next</button>
+      </div>
+    </div>
 
-    // Next button click -> show step 2
-    nextButton.addEventListener('click', () => {
-      step1.classList.remove('active');
-      step2.classList.add('active');
-      submitButton.disabled = true; // Initially disable submit until plan selected
-    });
+    <div class="step" id="step2">
+      <h3>Promote Your Ad</h3>
+      <p>Select a promotion plan to boost your ad visibility:</p>
 
-    // Back button click -> show step 1
-    backButton.addEventListener('click', () => {
-      step2.classList.remove('active');
-      step1.classList.add('active');
-    });
+      <div class="promotion-plans">
+        <label class="plan" for="plan7days">
+          <input type="radio" id="plan7days" name="promotionPlan" value="7days" />
+          <div class="plan-title">7 Days Plan</div>
+          <div class="plan-price">₦9,000</div>
+          <div class="plan-description">
+            Promote your ad for 7 days to reach more buyers quickly.
+          </div>
+        </label>
 
-    // Promotion plan selection style & enable submit button
-    promotionPlanInputs.forEach(input => {
-      input.addEventListener('change', () => {
-        // Remove selected class from all plans
-        document.querySelectorAll('.plan').forEach(planLabel => {
-          planLabel.classList.remove('selected');
-        });
-        // Add selected class to chosen plan
-        const selectedLabel = input.closest('label.plan');
-        if (selectedLabel) {
-          selectedLabel.classList.add('selected');
-        }
-        submitButton.disabled = false;
-      });
-    });
+        <label class="plan" for="plan1month">
+          <input type="radio" id="plan1month" name="promotionPlan" value="1month" />
+          <div class="plan-title">1 Month Plan</div>
+          <div class="plan-price">₦27,000</div>
+          <div class="plan-description">
+            Keep your ad featured for 1 full month for maximum exposure.
+          </div>
+        </label>
+      </div>
 
-    // Image preview for multiple images
-    imageInput.addEventListener('change', () => {
-      imagePreviewContainer.innerHTML = '';
-      const files = imageInput.files;
-      if (files.length > 0) {
-        Array.from(files).forEach(file => {
-          if (!file.type.startsWith('image/')) return;
-          const img = document.createElement('img');
-          img.classList.add('image-preview');
-          img.style.display = 'block';
-          img.style.marginBottom = '10px';
-          img.style.maxWidth = '100%';
-          img.style.maxHeight = '150px';
+      <div class="button-row">
+        <button type="button" id="backButton">Back</button>
+        <button type="submit" id="submitButton" disabled>Post Ad</button>
+      </div>
+    </div>
+  </form>
+</div>
 
-          const reader = new FileReader();
-          reader.onload = e => {
-            img.src = e.target.result;
-          };
-          reader.readAsDataURL(file);
-
-          imagePreviewContainer.appendChild(img);
-        });
-      }
-    });
-
-    // Submit handler
-    document.getElementById('adForm').addEventListener('submit', e => {
-      e.preventDefault();
-
-      // Gather form data
-      const formData = {
-        title: titleInput.value.trim(),
-        description: descriptionInput.value.trim(),
-        price: parseFloat(priceInput.value),
-        contactName: contactNameInput.value.trim(),
-        contactEmail: contactEmailInput.value.trim(),
-        contactPhone: contactPhoneInput.value.trim(),
-        promotionPlan: document.querySelector('input[name="promotionPlan"]:checked').value,
-        images: Array.from(imageInput.files).map(file => file.name) // Just file names for demo
-      };
-
-      console.log('Ad Data Submitted:', formData);
-      alert('Your ad has been posted successfully!');
-
-      // Reset form and go back to step 1
-      e.target.reset();
-      imagePreviewContainer.innerHTML = '';
-      submitButton.disabled = true;
-      nextButton.disabled = true;
-
-      step2.classList.remove('active');
-      step1.classList.add('active');
-
-      document.querySelectorAll('.plan').forEach(planLabel => {
-        planLabel.classList.remove('selected');
-      });
-    });
-  </script>
+<!-- Footer HTML -->
+<footer class="footer">
+    <div class="footer-container">
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">How It Works</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms & Conditions</a></li>
+        </ul>
+      </div>
+  
+      <div class="footer-section">
+        <h4>Popular Categories</h4>
+        <ul>
+          <li><a href="#">Vehicles</a></li>
+          <li><a href="#">Electronics</a></li>
+          <li><a href="#">Real Estate</a></li>
+          <li><a href="#">Jobs</a></li>
+          <li><a href="#">Services</a></li>
+        </ul>
+      </div>
+  
+      <div class="footer-section">
+        <h4>Follow Us</h4>
+        <div class="social-icons">
+          <a href="#"><i class="fa-brands fa-facebook" style="color:#1877F2"></i></a>
+          <a href="#"><i class="fa-brands fa-whatsapp" style="color:#128C7E"></i></a>
+          <a href="#"><i class="fa-brands fa-twitter" style="color:#1DA1F2"></i></a>
+          <a href="#"><i class="fa-brands fa-instagram" style="color:#DD2A7B"></i></a>
+        </div>
+      </div>
+    </div>
+  
+    <div class="footer-bottom">
+      <p>© 2025 Ahia. All rights reserved. | Nigeria | English</p>
+    </div>
+  </footer>
 
 </body>
 </html>

@@ -149,3 +149,26 @@ div.onclick = () => {
       const input = document.getElementById("filterInput").value;
       alert("You searched for: " + input);
     }
+
+
+
+
+    const popup = document.getElementById("registerPopup");
+  const openBtn = document.getElementById("openRegisterPopup");
+  const closeBtn = document.querySelector(".popup-close");
+
+  openBtn.onclick = function(e) {
+    e.preventDefault();
+    popup.style.display = "flex";
+  }
+
+  closeBtn.onclick = function() {
+    popup.style.display = "none";
+  }
+
+  window.onclick = function(e) {
+    if (e.target === popup) {
+      popup.style.display = "none";
+    }
+  }
+

@@ -38,90 +38,163 @@
         </nav>
     </header>
 
-    <main>
-       
-        <section class="featured-categories">
-            <h2>Popular Categories</h2>
-          <div class="category-grid"> 
-<div class="category-grid"> 
-    <a href="property.html" class="category-link"><div class="category-item">Property</div></a>
-    <a href="electronics.html" class="category-link"><div class="category-item">Electronics</div></a>
-    <a href="vehicles.html" class="category-link"><div class="category-item">Vehicles</div></a>
-    <a href="job.html" class="category-link"><div class="category-item">Jobs</div></a>
-    <a href="furniture.html" class="category-link"><div class="category-item">Furniture</div></a>
-    <a href="service.html" class="category-link"><div class="category-item">Services</div></a>
+   <main>
+    <!-- Featured Categories -->
+    <section class="featured-categories">
+      <h2>Popular Categories</h2>
+      <div class="category-grid">
+        <a href="property.html" class="category-link"><div class="category-item">Property</div></a>
+        <a href="electronics.html" class="category-link"><div class="category-item">Electronics</div></a>
+        <a href="vehicles.html" class="category-link"><div class="category-item">Vehicles</div></a>
+        <a href="job.html" class="category-link"><div class="category-item">Jobs</div></a>
+        <a href="furniture.html" class="category-link"><div class="category-item">Furniture</div></a>
+        <a href="service.html" class="category-link"><div class="category-item">Services</div></a>
+      </div>
+    </section>
+
+   <section class="recent-listings" style="padding: 20px;">
+  <h1>💼Jobs Listings</h1>
+
+  <div class="recent-listings-content" style="display: flex; flex-wrap: wrap; gap: 30px;">
+    <!-- Sidebar Filter -->
+    <aside class="filter-section" style="flex: 1 1 250px; max-width: 300px;">
+      <h2>Filter Listings</h2>
+
+      <!-- Category Filter -->
+      <div class="filter-group">
+        <h3>Category</h3>
+        <label><input type="radio" name="category" value="Dogs"> Dogs</label><br />
+        <label><input type="radio" name="category" value="Cats"> Cats</label>
+      </div>
+
+      <!-- Location Filter -->
+      <div class="filter-group">
+        <h3>Location</h3>
+        <button class="enugu-btn" onclick="openModal()">Enugu</button>
+      </div>
+      <!-- Modal -->
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <span class="close-icon" onclick="closeModal()">&times;</span>
+    <h2 id="modal-title">Select a Community</h2>
+    <div class="button-grid" id="buttonGrid">
+      <!-- Dynamic buttons go here -->
+    </div>
+    <button class="back-btn" id="backbtn"   onclick="loadMainMenu()">← Back</button>
+  </div>
 </div>
-     </section>
- </main>
+   
+<div class="input-wrapper">
+  <div id="suggestions" class="suggestions-box"></div>
+</div>
 
-    <section class="recent-listings">
-            <h1>Job Listings</h1>
-            <div class="listings-grid">
-                <div class="listing-item">
-                    <img src="asset/iphone.jpg" alt="Used iPhone 13" class="listing-image">
-                    <h3>Used iPhone 13</h3>
-                    <p>Good condition, barely used</p>
-                    <span class="price">₦300</span>
-                </div>
-                <div class="listing-item">
-                    <img src="asset/gascylinder.webp" alt="Mountain Bike" class="listing-image">
-                    <h3>Mountain Bike</h3>
-                    <p>Great for trails</p>
-                    <span class="price">₦250</span>
-                </div>
-                <div class="listing-item">
-                    <img src="asset/graphic.jpg" alt="Graphic Design Services" class="listing-image">
-                    <h3>Graphic Design Services</h3>
-                    <p>Professional designer available</p>
-                    <span class="price">₦250</span>
-                </div>
+      <!-- Price Filter -->
+      <div class="filter-group">
+        <h3>Price Range</h3>
+        <input type="number" id="minPrice" placeholder="Min Price" /> -
+        <input type="number" id="maxPrice" placeholder="Max Price" />
+        <div style="margin-top: 10px;">
+          <button id="savePriceBtn" disabled>Save</button>
+          <button id="clearPriceBtn" disabled>Clear</button>
+        </div>
+      </div>
 
-                <div class="listing-item">
-                    <img src="asset/babies for sell.jpeg" alt="Graphic Design Services" class="listing-image">
-                    <h3>Graphic Design Services</h3>
-                    <p>Professional designer available</p>
-                    <span class="price">₦250</span>
-                </div>
+      <!-- Gender Filter -->
+      <div class="filter-group">
+        <h3>Gender</h3>
+        <label><input type="checkbox" name="gender" value="Male" /> Male</label><br />
+        <label><input type="checkbox" name="gender" value="Female" /> Female</label>
+      </div>
 
-                <div class="listing-item">
-                    <img src="asset/book.jpg" alt="Graphic Design Services" class="listing-image">
-                    <h3>Graphic Design Services</h3>
-                    <p>Professional designer available</p>
-                    <span class="price">₦250</span>
-                </div>
+      <!-- Breed Filter -->
+      <div class="filter-group">
+        <h3>Breed</h3>
+        <input type="text" id="breedSearchInput" placeholder="Search breed..." /><br /><br />
+        <div id="breedCheckboxes">
+          <label><input type="checkbox" name="breed" value="Labrador" /> Labrador</label><br />
+          <label><input type="checkbox" name="breed" value="Bulldog" /> Bulldog</label><br />
+          <label><input type="checkbox" name="breed" value="Persian" /> Persian</label><br />
+          <label><input type="checkbox" name="breed" value="Siamese" /> Siamese</label>
+        </div>
+      </div>
 
-                <div class="listing-item">
-                    <img src="asset/tires.jpg" alt="Graphic Design Services" class="listing-image">
-                    <h3>Graphic Design Services</h3>
-                    <p>Professional designer available</p>
-                    <span class="price">₦250</span>
-                </div>
+      <button class="apply-filters" onclick="filterListings()">Apply Filters</button>
+    </aside>
 
-                   <div class="listing-item">
-                    <img src="asset/used cloth.jpg" alt="Graphic Design Services" class="listing-image">
-                    <h3>Graphic Design Services</h3>
-                    <p>Professional designer available</p>
-                    <span class="price">₦250</span>
-                </div>
+    <!-- Listings Grid -->
+    <div class="listings-grid" style="flex: 3 1 600px; display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px;">
+      <a href="product-detail.html?id=2" class="listing-link">
+  <div class="listing-item">
+    <img src="asset/gascylinder.webp" alt="Mountain Bike" class="listing-image" />
+    <h3>Mountain Bike</h3>
+    <p>Great for trails</p>
+    <span class="price">₦250</span>
+  </div>
+</a>
+<a href="product-detail.html?id=2" class="listing-link">
+  <div class="listing-item">
+    <img src="asset/gascylinder.webp" alt="Mountain Bike" class="listing-image" />
+    <h3>Mountain Bike</h3>
+    <p>Great for trails</p>
+    <span class="price">₦250</span>
+  </div>
+</a><a href="product-detail.html?id=2" class="listing-link">
+  <div class="listing-item">
+    <img src="asset/gascylinder.webp" alt="Mountain Bike" class="listing-image" />
+    <h3>Mountain Bike</h3>
+    <p>Great for trails</p>
+    <span class="price">₦250</span>
+  </div>
+</a><a href="product-detail.html?id=2" class="listing-link">
+  <div class="listing-item">
+    <img src="asset/gascylinder.webp" alt="Mountain Bike" class="listing-image" />
+    <h3>Mountain Bike</h3>
+    <p>Great for trails</p>
+    <span class="price">₦250</span>
+  </div>
+</a><a href="product-detail.html?id=2" class="listing-link">
+  <div class="listing-item">
+    <img src="asset/gascylinder.webp" alt="Mountain Bike" class="listing-image" />
+    <h3>Mountain Bike</h3>
+    <p>Great for trails</p>
+    <span class="price">₦250</span>
+  </div>
+</a><a href="product-detail.html?id=2" class="listing-link">
+  <div class="listing-item">
+    <img src="asset/gascylinder.webp" alt="Mountain Bike" class="listing-image" />
+    <h3>Mountain Bike</h3>
+    <p>Great for trails</p>
+    <span class="price">₦250</span>
+  </div>
+</a><a href="product-detail.html?id=2" class="listing-link">
+  <div class="listing-item">
+    <img src="asset/gascylinder.webp" alt="Mountain Bike" class="listing-image" />
+    <h3>Mountain Bike</h3>
+    <p>Great for trails</p>
+    <span class="price">₦250</span>
+  </div>
+</a><a href="product-detail.html?id=2" class="listing-link">
+  <div class="listing-item">
+    <img src="asset/gascylinder.webp" alt="Mountain Bike" class="listing-image" />
+    <h3>Mountain Bike</h3>
+    <p>Great for trails</p>
+    <span class="price">₦250</span>
+  </div>
+</a>
 
-                <div class="listing-item">
-                    <img src="asset/used-hybrid-cars-lexus.webp" alt="Graphic Design Services" class="listing-image">
-                    <h3>Graphic Design Services</h3>
-                    <p>Professional designer available</p>
-                    <span class="price">₦250</span>
-                </div>
 
-                <div class="listing-item">
-                    <img src="asset/eye glass.jpeg" alt="Graphic Design Services" class="listing-image">
-                    <h3>Graphic Design Services</h3>
-                    <p>Professional designer available</p>
-                    <span class="price">₦250</span>
-                </div>
-        </section>
+    
+      <!-- More listing items go here -->
+    </div>
+  </div>
+</section>
 
-        
- <!-- Footer HTML -->
-<footer class="footer">
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
     <div class="footer-container">
       <div class="footer-section">
         <h4>Quick Links</h4>
@@ -133,7 +206,6 @@
           <li><a href="#">Terms & Conditions</a></li>
         </ul>
       </div>
-  
       <div class="footer-section">
         <h4>Popular Categories</h4>
         <ul>
@@ -144,7 +216,6 @@
           <li><a href="#">Services</a></li>
         </ul>
       </div>
-  
       <div class="footer-section">
         <h4>Follow Us</h4>
         <div class="social-icons">
@@ -155,7 +226,6 @@
         </div>
       </div>
     </div>
-  
     <div class="footer-bottom">
       <p>© 2025 Ahia. All rights reserved. | Nigeria | English</p>
     </div>
